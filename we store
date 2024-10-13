@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Marketplace</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <h1>Digital Marketplace</h1>
+    <nav>
+        <a href="#games">Games</a>
+        <a href="#films">Films</a>
+        <a href="#music">Music</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<main>
+    <section id="games">
+        <h2>Games</h2>
+        <div class="product" data-name="Game1" data-price="20">
+            <h3>Game 1</h3>
+            <p>Price: $20</p>
+            <button class="buy-button">Buy Now</button>
+        </div>
+        <div class="product" data-name="Game2" data-price="25">
+            <h3>Game 2</h3>
+            <p>Price: $25</p>
+            <button class="buy-button">Buy Now</button>
+        </div>
+    </section>
+
+    <section id="films">
+        <h2>Films</h2>
+        <div class="product" data-name="Film1" data-price="15">
+            <h3>Film 1</h3>
+            <p>Price: $15</p>
+            <button class="buy-button">Buy Now</button>
+        </div>
+        <div class="product" data-name="Film2" data-price="18">
+            <h3>Film 2</h3>
+            <p>Price: $18</p>
+            <button class="buy-button">Buy Now</button>
+        </div>
+    </section>
+
+    <section id="music">
+        <h2>Music</h2>
+        <div class="product" data-name="Album1" data-price="10">
+            <h3>Album 1</h3>
+            <p>Price: $10</p>
+            <button class="buy-button">Buy Now</button>
+        </div>
+        <div class="product" data-name="Album2" data-price="12">
+            <h3>Album 2</h3>
+            <p>Price: $12</p>
+            <button class="buy-button">Buy Now</button>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <h3>Contact Us</h3>
+    <p>Email: contact@digitalmarketplace.com</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 10px 20px;
+}
+
+nav a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+main {
+    margin: 20px 0;
+}
+
+.product {
+    background: #fff;
+    margin: 10px 0;
+    padding: 15px;
+    border: 1px solid #ccc;
+}
+
+footer {
+    margin-top: 20px;
+    padding: 10px 0;
+    text-align: center;
+}
+document.querySelectorAll('.buy-button').forEach(button => {
+    button.addEventListener('click', function() {
+        const productName = this.parentElement.dataset.name;
+        const productPrice = this.parentElement.dataset.price;
+        
+        // Mock payment process
+        const paymentConfirmed = confirm(`Proceed to payment for ${productName} - $${productPrice}?`);
+
+        if (paymentConfirmed) {
+            alert(`Thank you for purchasing ${productName} for $${productPrice}!`);
+            // Here you would normally handle the payment process with a backend
+        }
+    });
+});
